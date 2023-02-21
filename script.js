@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const PROFILE_BASE_URL = "http://image.tmdb.org/t/p/w185";
@@ -57,7 +57,7 @@ const renderMovies = (movies) => {
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
-    <div class="row">
+    <div class="">
         <div class="col-md-4">
              <img id="movie-backdrop" src=${
                BACKDROP_BASE_URL + movie.backdrop_path
