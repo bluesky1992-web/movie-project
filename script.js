@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 const TMDB_BASE_URL = "https://api.themoviedb.org/3";
 const PROFILE_BASE_URL = "http://image.tmdb.org/t/p/w185";
@@ -40,30 +40,43 @@ const fetchMovie = async (movieId) => {
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies) => {
-  movies.map((movie) => {
-    const movieDiv = document.createElement("div");
-    movieDiv.innerHTML = `
-        <img src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${
-      movie.title
-    } poster">
-        <h3>${movie.title}</h3>`;
-    movieDiv.addEventListener("click", () => {
+  const movieContainer = document.createElement("div");
+  movieContainer.classList.add("row", "row-cols-1", "row-cols-sm-1", "row-cols-md-3");
+
+  movies.forEach((movie) => {
+    const movieCard = document.createElement("div");
+    movieCard.classList.add("col", "mb-4");
+
+    movieCard.innerHTML = `
+      <div class="card mt-5">
+        <img class="card-img-top" src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${movie.title} poster">
+        <div class="card-body">
+          <h5 class="card-title text-center">${movie.title}</h5>
+        </div>
+      </div>
+    `;
+
+    movieCard.addEventListener("click", () => {
       movieDetails(movie);
     });
-    CONTAINER.appendChild(movieDiv);
+
+    movieContainer.appendChild(movieCard);
   });
+
+  CONTAINER.appendChild(movieContainer);
 };
+
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
-    <div class="row">
-        <div class="col-md-4">
+    <div class="">
+        <div class="">
              <img id="movie-backdrop" src=${
                BACKDROP_BASE_URL + movie.backdrop_path
              }>
         </div>
-        <div class="col-md-8">
+        <div class="">
             <h2 id="movie-title">${movie.title}</h2>
             <p id="movie-release-date"><b>Release Date:</b> ${
               movie.release_date

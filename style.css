@@ -1,11 +1,17 @@
 #movie-backdrop {
     width: 100%;
+
 }
 
-.container {
-    padding-top: 32px;
+body {
+    background-color: rgb(223, 223, 223);
+    
 }
 
 #actors {
     margin: 24px 16px 0 0;
+}
+.cards-container {
+    padding-top: 50px;
+  
 }
