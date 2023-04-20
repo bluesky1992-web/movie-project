@@ -51,7 +51,7 @@ const renderMovies = (movies) => {
       <div class="card mt-5">
         <img class="card-img-top" src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${movie.title} poster">
         <div class="card-body">
-          <h5 class="card-title text-center">${movie.title}</h5>
+          <h5 class="card-title text-left text-muted">${movie.title}</h5>
         </div>
       </div>
     `;
@@ -70,13 +70,13 @@ const renderMovies = (movies) => {
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
-    <div class="">
-        <div class="">
+    <div class="row py-5  vh-100">
+        <div class="col-md-4">
              <img id="movie-backdrop" src=${
                BACKDROP_BASE_URL + movie.backdrop_path
              }>
         </div>
-        <div class="">
+        <div class="col-md-8">
             <h2 id="movie-title">${movie.title}</h2>
             <p id="movie-release-date"><b>Release Date:</b> ${
               movie.release_date
@@ -85,9 +85,12 @@ const renderMovie = (movie) => {
             <h3>Overview:</h3>
             <p id="movie-overview">${movie.overview}</p>
         </div>
+        <h3>Actors:</h3>
+            <ul id="actors" class="list-unstyled">
+             <li></li>
+            </ul>
         </div>
-            <h3>Actors:</h3>
-            <ul id="actors" class="list-unstyled"></ul>
+            
     </div>`;
 };
 
