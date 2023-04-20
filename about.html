@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -10,84 +12,108 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
-    <title>Movie</title>
   </head>
-
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-secondary">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="./index.html">MovieDB</a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav m mx-auto">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Actors</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Geners
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Comedy</a></li>
-                <li><a class="dropdown-item" href="#"> Action</a></li>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-body-secondary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="./index.html">MovieDB</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav m mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  >Actors</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Geners
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Comedy</a></li>
+                  <li><a class="dropdown-item" href="#"> Action</a></li>
 
-                <li><a class="dropdown-item" href="#">sci-fi</a></li>
-              </ul>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                filter
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Popular</a></li>
-                <li><a class="dropdown-item" href="#"> release date</a></li>
+                  <li><a class="dropdown-item" href="#">sci-fi</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  filter
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Popular</a></li>
+                  <li><a class="dropdown-item" href="#"> release date</a></li>
 
-                <li><a class="dropdown-item" href="#">Top-rated</a></li>
-                <li><a class="dropdown-item" href="#">now playing</a></li>
-                <li><a class="dropdown-item" href="#">up coming</a></li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success rounded-pill" type="submit">
-              Search
-            </button>
-          </form>
+                  <li><a class="dropdown-item" href="#">Top-rated</a></li>
+                  <li><a class="dropdown-item" href="#">now playing</a></li>
+                  <li><a class="dropdown-item" href="#">up coming</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-outline-success rounded-pill"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container vh-100 pt-md-5">
+        <div class="row">
+          <div class="col px-5 py-5 ">
+            <h1>About MovieDB</h1>
+            <p class="">
+              Hi, I'm the developer of this movie website. I'm a movie
+              enthusiast who loves to explore different genres, styles, and
+              cultures in film. My passion for movies inspired me to create this
+              platform, where I share my thoughts and insights about the world
+              of cinema. If you have any questions, comments, or feedback about
+              the website or want to collaborate on a project, feel free to
+              reach out to me via email or social media. Thanks for visiting my
+              website and I hope you find it informative and entertaining!
+            </p>
+          </div>
         </div>
       </div>
-    </nav>
-    <div class="container"></div>
+    </main>
+
     <footer class="bg-body-secondary text-dark py-1">
       <div class="container">
         <div class="row">
@@ -148,7 +174,6 @@
         </div>
       </div>
     </footer>
-    <script type="text/javascript" src="script.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"

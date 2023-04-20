@@ -43,7 +43,7 @@ const renderMovies = (movies) => {
   const movieContainer = document.createElement("div");
   movieContainer.classList.add("row", "row-cols-1", "row-cols-sm-1", "row-cols-md-3");
 
-  movies.forEach((movie) => {
+  movies.map((movie) => {
     const movieCard = document.createElement("div");
     movieCard.classList.add("col", "mb-4");
 
