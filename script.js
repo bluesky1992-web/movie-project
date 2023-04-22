@@ -21,7 +21,9 @@ const constructUrl = (path) => {
 // You may need to add to this function, definitely don't delete it.
 const movieDetails = async (movie) => {
   const movieRes = await fetchMovie(movie.id);
+  
   renderMovie(movieRes);
+
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
@@ -33,15 +35,26 @@ const fetchMovies = async () => {
 
 // Don't touch this function please. This function is to fetch one movie.
 const fetchMovie = async (movieId) => {
-  const url = constructUrl(`movie/${movieId}`);
-  const res = await fetch(url);
-  return res.json();
+  const movieUrl = constructUrl(`movie/${movieId}`);
+  const creditsUrl = constructUrl(`movie/${movieId}/credits`);
+  const [movieRes, creditsRes] = await Promise.all([fetch(movieUrl),fetch(creditsUrl)])
+  const movie = await movieRes.json();
+  const credits = await creditsRes.json();
+  return { ...movie, credits };
 };
+
+
+
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies) => {
   const movieContainer = document.createElement("div");
-  movieContainer.classList.add("row", "row-cols-1", "row-cols-sm-1", "row-cols-md-3");
+  movieContainer.classList.add(
+    "row",
+    "row-cols-1",
+    "row-cols-sm-1",
+    "row-cols-md-3"
+  );
 
   movies.map((movie) => {
     const movieCard = document.createElement("div");
@@ -49,7 +62,9 @@ const renderMovies = (movies) => {
 
     movieCard.innerHTML = `
       <div class="card mt-5">
-        <img class="card-img-top" src="${BACKDROP_BASE_URL + movie.backdrop_path}" alt="${movie.title} poster">
+        <img class="card-img-top" src="${
+          BACKDROP_BASE_URL + movie.backdrop_path
+        }" alt="${movie.title} poster">
         <div class="card-body">
           <h5 class="card-title text-left text-muted">${movie.title}</h5>
         </div>
@@ -65,7 +80,6 @@ const renderMovies = (movies) => {
 
   CONTAINER.appendChild(movieContainer);
 };
-
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
@@ -87,7 +101,12 @@ const renderMovie = (movie) => {
         </div>
         <h3>Actors:</h3>
             <ul id="actors" class="list-unstyled">
-             <li></li>
+            ${movie.credits.cast.map(actor => `
+  <li>
+    <img src="${PROFILE_BASE_URL + actor.profile_path}" alt="${actor.name} photo" width="100">
+    <p>${actor.name}</p>
+  </li>`
+).join('')}
             </ul>
         </div>
             
