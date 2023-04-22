@@ -21,9 +21,18 @@ const constructUrl = (path) => {
 // You may need to add to this function, definitely don't delete it.
 const movieDetails = async (movie) => {
   const movieRes = await fetchMovie(movie.id);
-  
+
   renderMovie(movieRes);
 
+  $("#actors-slider").slick({
+    dots: true,
+    infinite: false,
+    speed: 200,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    
+    
+  });
 };
 
 // This function is to fetch movies. You may need to add it or change some part in it in order to apply some of the features.
@@ -37,14 +46,14 @@ const fetchMovies = async () => {
 const fetchMovie = async (movieId) => {
   const movieUrl = constructUrl(`movie/${movieId}`);
   const creditsUrl = constructUrl(`movie/${movieId}/credits`);
-  const [movieRes, creditsRes] = await Promise.all([fetch(movieUrl),fetch(creditsUrl)])
+  const [movieRes, creditsRes] = await Promise.all([
+    fetch(movieUrl),
+    fetch(creditsUrl),
+  ]);
   const movie = await movieRes.json();
   const credits = await creditsRes.json();
   return { ...movie, credits };
 };
-
-
-
 
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovies = (movies) => {
@@ -84,7 +93,7 @@ const renderMovies = (movies) => {
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
-    <div class="row py-5  vh-100">
+    <div class="row  ">
         <div class="col-md-4">
              <img id="movie-backdrop" src=${
                BACKDROP_BASE_URL + movie.backdrop_path
@@ -99,17 +108,18 @@ const renderMovie = (movie) => {
             <h3>Overview:</h3>
             <p id="movie-overview">${movie.overview}</p>
         </div>
-        <h3>Actors:</h3>
-            <ul id="actors" class="list-unstyled">
-            ${movie.credits.cast.map(actor => `
-  <li>
-    <img src="${PROFILE_BASE_URL + actor.profile_path}" alt="${actor.name} photo" width="100">
-    <p>${actor.name}</p>
-  </li>`
-).join('')}
-            </ul>
+       <h3>Actors:</h3>
+        <div id="actors-slider" class=''>
+        
+          ${movie.credits.cast
+            .map(
+              (actor) =>
+                `<img src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
+                  actor.name
+                }" onerror="this.style.display='none'; this.onerror=null;"> `
+            )
+            .join("")}
         </div>
-            
     </div>`;
 };
 

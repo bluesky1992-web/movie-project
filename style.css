@@ -19,3 +19,10 @@ body {
     display: flex;
     flex-direction: row;
 }
+
+ #actors-slider img {
+    max-width: 150px;
+    margin:10px ;
+    border-radius: 6%;
+    border: 2px solid cornflowerblue ;
+  }
