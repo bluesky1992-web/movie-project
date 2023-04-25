@@ -93,34 +93,37 @@ const renderMovies = (movies) => {
 // You'll need to play with this function in order to add features and enhance the style.
 const renderMovie = (movie) => {
   CONTAINER.innerHTML = `
-    <div class="row  ">
-        <div class="col-md-4">
-             <img id="movie-backdrop" src=${
-               BACKDROP_BASE_URL + movie.backdrop_path
-             }>
-        </div>
-        <div class="col-md-8">
-            <h2 id="movie-title">${movie.title}</h2>
-            <p id="movie-release-date"><b>Release Date:</b> ${
-              movie.release_date
-            }</p>
-            <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
-            <h3>Overview:</h3>
-            <p id="movie-overview">${movie.overview}</p>
-        </div>
-       <h3>Actors:</h3>
-        <div id="actors-slider" class=''>
-        
-          ${movie.credits.cast
-            .map(
-              (actor) =>
-                `<img src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
-                  actor.name
-                }" onerror="this.style.display='none'; this.onerror=null;"> `
-            )
-            .join("")}
-        </div>
-    </div>`;
+    <div class="row my-5">
+      <div class="col-md-4  ">
+        <img id="movie-backdrop" src=${BACKDROP_BASE_URL + movie.backdrop_path}>
+      </div>
+      <div class="col-md-8 mt-10">
+        <h2 id="movie-title">${movie.title}</h2>
+        <p id="movie-release-date"><b>Release Date:</b> ${movie.release_date}</p>
+        <p id="movie-runtime"><b>Runtime:</b> ${movie.runtime} Minutes</p>
+        <h3>Overview:</h3>
+        <p id="movie-overview">${movie.overview}</p>
+      </div>
+      <h3 class='mt-3'>Actors:</h3>
+      <div id="actors-slider" class=''>
+        ${movie.credits.cast
+          .map(
+            (actor) => `
+              <div class='card mx-3 my-5'>
+                <img class="card-img-top w-10" src="${PROFILE_BASE_URL + actor.profile_path}" alt="${
+              actor.name
+            }" onerror="this.parentElement.style.display='none';" > 
+                <div class='card-body'>
+                  <h6 class='card-title text-truncate small text-center'>${actor.name}</h6>
+                </div>
+              </div>
+            `
+          )
+          .join('')}
+      </div>
+    </div>
+  `;
 };
+
 
 document.addEventListener("DOMContentLoaded", autorun);

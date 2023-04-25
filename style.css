@@ -8,9 +8,9 @@ body {
     
 }
 
-#actors {
+/* #actors {
     margin: 24px 16px 0 0;
-}
+} */
 .cards-container {
     padding-top: 50px;
   
@@ -21,8 +21,9 @@ body {
 }
 
  #actors-slider img {
-    max-width: 150px;
-    margin:10px ;
-    border-radius: 6%;
+    /* max-width: 100px; */
+    /* margin:10px ; */
+   
+    border-radius: 3%;
     border: 2px solid cornflowerblue ;
   }
